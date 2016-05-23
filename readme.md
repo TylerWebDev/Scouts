@@ -15,7 +15,7 @@ brew install --devel ansible
 
 > clone this repository to the control machine
 ```
-git clone ...
+git clone git@github.com:TylerWebDev/Scouts.git
 ```
 
 > install ansible dependencies
@@ -34,7 +34,7 @@ ansible-playbook deploy.yml
 openssl passwd -1 "scouts"
 ```
 
-## Ensure virtual host mappings are setup in tomcat
+> ensure virtual host mappings are setup in tomcat
 ```
 /opt/lucee/tomcat/conf/server.xml
 ```
