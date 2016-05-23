@@ -1,0 +1,1 @@
+<?= "hello from {{ scout }} in php!" ?>

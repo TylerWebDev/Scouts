@@ -1,0 +1,11 @@
+---
+# tasks file for roles/ssh_keys
+  # Public ssh keys for server
+  - name: Ensure logan's key is on server
+    authorized_key: user=root key="{{ lookup('file', 'logan.pub') }}"
+
+  - name: Ensure joseph's key is on server
+    authorized_key: user=root key="{{ lookup('file', 'joseph.pub') }}"
+
+  - name: Ensure seth's key is on server
+    authorized_key: user=root key="{{ lookup('file', 'seth.pub') }}"

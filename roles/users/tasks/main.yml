@@ -1,0 +1,36 @@
+---
+# tasks file for users
+
+  # create user
+  - user: name={{ item }} password="$1$r12YHoF5$SxsCqyJtRWdq3Tq7.ZGZM/"
+    with_items:
+         - "{{ users }}"
+
+  # put default php files in
+  - name: put default php files in
+    template:
+      src="index.php"
+      dest="/home/{{ item }}/index.php"
+      owner="{{ item }}"
+      mode=0755
+    vars:
+      scout: "{{ item }}"
+    with_items:
+         - "{{ users }}"
+
+  # put default cfm files in
+  - name: put default cfm files in
+    template:
+      src="index.cfm"
+      dest="/home/{{ item }}/index.cfm"
+      owner="{{ item }}"
+      mode=0755
+    vars:
+      scout: "{{ item }}"
+    with_items:
+          - "{{ users }}"
+
+  # ensure read/writable home
+  - file: path=/home/{{ item }} state=directory mode=0755 owner={{ item }}
+    with_items:
+         - "{{ users }}"

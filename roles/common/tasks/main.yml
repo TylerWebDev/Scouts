@@ -1,0 +1,10 @@
+---
+# tasks file for roles/common
+  - name: upgrade all packages
+    yum: name=* state=latest
+
+  - name: Ensure git is installed
+    yum: name=git state=latest
+
+  - name: Ensure vim is installed
+    yum: name=vim state=latest

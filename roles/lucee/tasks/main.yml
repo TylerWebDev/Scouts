@@ -1,0 +1,12 @@
+---
+# tasks file for lucee
+- name: download lucee installer
+  get_url: url="http://cdn.lucee.org/downloader.cfm/id/143/file/lucee-4.5.2.018-pl0-linux-x64-installer.run" dest=/opt/{{"http://cdn.lucee.org/downloader.cfm/id/143/file/lucee-4.5.2.018-pl0-linux-x64-installer.run"|basename}}  mode=0744
+- name: install lucee
+  shell: /opt/{{"http://cdn.lucee.org/downloader.cfm/id/143/file/lucee-4.5.2.018-pl0-linux-x64-installer.run"|basename}} --mode unattended --railopass scouts --installconn false creates=/opt/lucee/uninstall
+  register: installed_lucee
+- name: update Tomcat server.xml
+  template: src=server.xml dest=/opt/lucee/tomcat/conf/server.xml
+  notify: restart lucee
+- name: make sure lucee runs on startup
+  service: name=lucee_ctl enabled=yes state=started

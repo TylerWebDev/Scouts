@@ -1,0 +1,13 @@
+---
+- name: Ensure nginx is latest
+  yum: name=nginx state=latest
+
+- name: copy nginx.conf, inludes ssl setup
+  template:
+    src="nginx.conf"
+    dest="/etc/nginx/nginx.conf"
+  notify:
+    - restart nginx
+
+- name: make sure nginx runs on startup
+  service: name=nginx enabled=yes state=started

@@ -1,0 +1,28 @@
+---
+- hosts: deploy
+  gather_facts: false
+  remote_user: root
+  become: yes
+  become_method: sudo
+
+  # Tasks to run before roles (misc server setup)
+  pre_tasks:
+  - name: bootstrap python
+    raw: yum -y install python
+
+  # Manually gather facts, because we need to run the python check before gathering facts
+  - name: gathering facts
+    setup:
+
+  roles:
+      - geerlingguy.repo-epel
+      - geerlingguy.repo-remi
+      - kamaln7.swapfile
+      - common
+      - ssh_keys
+      - redis
+      - php
+      - geerlingguy.composer
+      - { role: users, users: "{{ scouts }}", tags: ["users"] }
+      - { role: lucee, domains: "{{ scouts }}", tags: ["lucee"] }
+      - { role: nginx, domains: "{{ scouts }}", tags: ["nginx"] }
