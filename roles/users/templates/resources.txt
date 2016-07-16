@@ -1,8 +1,10 @@
-
+=======================================================================
 ColdFusion Lab
 =======================================================================
 
-1) HTML template
+----------------
+1) HTML
+----------------
 
 <!doctype html>
 <html>
@@ -12,7 +14,32 @@ ColdFusion Lab
 </html>
 
 
+----------------
+2) JavaScript
+----------------
 
+<script>
+  document.getElementById('degreesInFInput').focus();
+</script>
+
+
+----------------
+3) CSS
+----------------
+body {
+  background-color: #f2f1ed; /* Khaki */
+  color: #996633; /* Brown */
+  padding: 20px;
+}
+
+
+----------------
+4) Header Image
+----------------
+<img src="http://www.scouting.org/filestore/marketing/logos/Boy%20Scouts/Universal_Emblem_4K.gif" width="70" height="78" align="center">
+
+
+=======================================================================
 BSA Branding
 =======================================================================
 http://www.scouting.org/Home/Marketing/Downloads/CurrentLogos.aspx
