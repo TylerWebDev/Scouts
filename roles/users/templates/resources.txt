@@ -1,4 +1,19 @@
 
+ColdFusion Lab
+=======================================================================
 
-BSA Logos
+1) HTML template
+
+<!doctype html>
+<html>
+  <body>
+    
+  </body>
+</html>
+
+
+
+BSA Branding
+=======================================================================
 http://www.scouting.org/Home/Marketing/Downloads/CurrentLogos.aspx
+http://blog.scoutingmagazine.org/2013/06/07/brand-id/
