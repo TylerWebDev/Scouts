@@ -29,6 +29,18 @@
       scout: "{{ item }}"
     with_items:
           - "{{ users }}"
+          
+  # put resources.txt files in
+  - name: put resources.txt files in
+    template:
+      src="resources.txt"
+      dest="/home/{{ item }}/resources.txt"
+      owner="{{ item }}"
+      mode=0644
+    vars:
+      scout: "{{ item }}"
+    with_items:
+          - "{{ users }}"
 
   # ensure read/writable home
   - file: path=/home/{{ item }} state=directory mode=0755 owner={{ item }}
