@@ -17,7 +17,7 @@
   roles:
       - geerlingguy.repo-epel
       - geerlingguy.repo-remi
-      - kamaln7.swapfile
+        #      - kamaln7.swapfile
       - common
       - ssh_keys
       - redis
